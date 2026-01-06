@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def home():
     estimated_annual = 0
-    current_user = "Praveen"
+    current_user = "Aruna"
     reason_text = ""
     
     if request.method == "POST":
