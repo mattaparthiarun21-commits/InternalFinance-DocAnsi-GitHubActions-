@@ -4,7 +4,7 @@ variable "aws_region" {
 
 variable "key_name" {
   description = "Name of your existing EC2 Key Pair (without .pem)"
-  default     = "batch3"  # <--- REPLACE THIS
+  default     = "tf-admin"  # <--- REPLACE THIS
 }
 
 variable "aws_access_key" {
