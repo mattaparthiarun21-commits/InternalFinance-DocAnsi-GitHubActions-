@@ -37,6 +37,7 @@ jobs:
             # 4. DOWNLOAD Playbook from GitHub
             # I've verified this URL matches your new repo name exactly:
             #curl -o deploy.yml https://raw.githubusercontent.com/praveenkumarilla4git/InternalFinance-DocAnsi-GitHubActions/main/Ansible/deploy.yml
+            #curl -o deploy.yml https://raw.githubusercontent.com/mattaparthiarun21-commits/InternalFinance-DocAnsi-GitHubActions-/main/Ansible/deploy.yml
             curl -o deploy.yml https://raw.githubusercontent.com/mattaparthiarun21-commits/InternalFinance-DocAnsi-GitHubActions-/main/Ansible/deploy.yml
 
             # 5. RUN Ansible
