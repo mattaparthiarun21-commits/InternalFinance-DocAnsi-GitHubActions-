@@ -1,3 +1,11 @@
+terraform {
+  backend "s3" {
+    bucket = "tf-state-aruna-2025"
+    key    = "finance-app/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
 provider "aws" {
   region = var.aws_region
   access_key = var.aws_access_key
@@ -54,4 +62,15 @@ resource "aws_instance" "finance_server" {
               systemctl enable docker
               usermod -a -G docker ec2-user
               EOF
+}
+
+# --- NEW: Generate Ansible Inventory File ---
+resource "local_file" "ansible_inventory" {
+  # We use "../" to go back one folder out of Ops-Infra, then into Ansible
+  filename = "${path.module}/../Ansible/hosts.ini"
+  # This content will be written to the file
+  content = <<EOT
+[webserver]
+${aws_instance.finance_server.public_ip} ansible_user=ec2-user ansible_ssh_private_key_file=key.pem ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+EOT
 }
