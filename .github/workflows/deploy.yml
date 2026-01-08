@@ -39,7 +39,7 @@ jobs:
         env:
           ANSIBLE_HOST_KEY_CHECKING: "False"
         run: |
-          ansible-playbook -i Ansible/hosts.ini Ansible/deploy.yml# name: Deploy to EC2
+          ansible-playbook -i Ansible/hosts.ini Ansible/deploy.yml 
 
 # on:
 #   push:
